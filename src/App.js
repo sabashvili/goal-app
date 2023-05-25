@@ -16,10 +16,15 @@ function App() {
     ]);
   };
 
+  const deleteItemHandler = (id) => {
+    const updatedItems = courseGoals.filter((item) => item.id !== id);
+    setCourseGoals(updatedItems);
+  };
+
   return (
     <div>
       <GoalForm onAddGoal={addGoalHandler} />
-      <ItemList items={courseGoals} />
+      <ItemList onDeleteItem={deleteItemHandler} items={courseGoals} />
     </div>
   );
 }
